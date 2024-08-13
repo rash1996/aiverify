@@ -34,6 +34,7 @@ router.post('/export',
         res.setHeader('Content-Length', buffer.length);
         res.setHeader('Content-Type', 'application/zip');
         res.setHeader('Content-Disposition', `attachment; filename=${filename}`);
+        res.setHeader('Access-Control-Allow-Origin', '*');
         readStream.pipe(res);  
       }).catch(err => {
         res.sendStatus(500)
