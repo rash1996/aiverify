@@ -57,6 +57,7 @@ router.get('/:projectId',
       res.setHeader('Content-Length', stat.size);
       res.setHeader('Content-Type', 'application/pdf');
       res.setHeader('Content-Disposition', 'inline');
+      res.setHeader('Access-Control-Allow-Origin', '*');
       file.pipe(res);  
     } catch (e) {
       res.sendStatus(500).end();
